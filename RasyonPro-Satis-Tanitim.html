@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RasyonPro | Büyükbaş Sığır Rasyon Optimizasyon Yazılımı</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FAF8F5;
+            color: #1C1917;
+        }
+        .editorial-grid {
+            background-image: radial-gradient(#D6D1C7 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#C2410C] selection:text-white">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-[#FAF8F5]/95 backdrop-blur border-b border-[#E6E0D6]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-md bg-[#23271E] text-[#F5EFE6] flex items-center justify-center font-extrabold text-base tracking-tighter">
+                    RP
+                </div>
+                <div class="flex items-baseline gap-2.5">
+                    <span class="font-extrabold text-xl tracking-tight text-[#1C1917]">Rasyon<span class="text-[#B45309]">Pro</span></span>
+                    <span class="hidden sm:inline-block text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#EFECE6] text-[#57534E] border border-[#DDD6CA]">NASEM & NRC 2021</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-[#57534E]">
+                <a href="#ozellikler" class="hover:text-[#1C1917] transition">Özellikler</a>
+                <a href="#canli-onizleme" class="hover:text-[#1C1917] transition">Rasyon Simülasyonu</a>
+                <a href="#tasarruf-hesaplayici" class="hover:text-[#1C1917] transition">Maliyet Hesaplayıcı</a>
+                <a href="#paketler" class="hover:text-[#1C1917] transition">Lisans Paketleri</a>
+                <a href="#iletisim" class="hover:text-[#1C1917] transition">İletişim</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <button onclick="openModal('Ücretsiz Demo Talebi')" class="bg-[#C2410C] hover:bg-[#9A3412] text-white text-sm font-bold px-4 py-2.5 rounded-md shadow-sm transition">
+                    Ücretsiz Demo İste
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-[#23271E] text-[#F5EFE6] py-20 lg:py-28 border-b border-[#363B2E] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#2F3528] border border-[#454D3B] text-[#E5A93C] text-xs font-bold tracking-wide uppercase">
+                        <span class="w-2 h-2 rounded-full bg-[#E5A93C]"></span>
+                        Süt Sığırcılığı & Besi İşletmeleri İçin Saha Mühendisliği
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight leading-[1.12] text-[#FAF8F5]">
+                        Yem Maliyetlerini <span class="text-[#E5A93C] underline decoration-[#C2410C] decoration-4 underline-offset-8">%18'e Kadar</span> Düşürün, Sürü Verimini Koruyun.
+                    </h1>
+                    <p class="text-lg text-[#D6D1C7] max-w-2xl leading-relaxed font-normal">
+                        Sığır Rasyon Optimizasyon yazılımı ile NASEM ve NRC standartlarına göre saniyeler içinde en düşük maliyetli, metabolik açıdan güvenli rasyonlar hazırlayın. İnternet olmayan ahır ve saha koşullarında %100 çevrimdışı çalışır.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="openModal('14 Günlük Ücretsiz Deneme')" class="bg-[#C2410C] hover:bg-[#9A3412] text-white font-bold px-7 py-3.5 rounded-md shadow-md transition">
+                            14 Gün Ücretsiz Dene
+                        </button>
+                        <a href="#tasarruf-hesaplayici" class="bg-transparent hover:bg-[#2F3528] border border-[#5C6450] text-[#F5EFE6] font-semibold px-7 py-3.5 rounded-md transition">
+                            Yıllık Tasarrufu Hesapla
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-6 pt-7 border-t border-[#383E30] max-w-lg">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-[#E5A93C]">%12–18</div>
+                            <div class="text-xs text-[#B8B2A6] mt-1 font-medium">Ortalama Yem Maliyeti Düşüşü</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-[#E5A93C]">0–100</div>
+                            <div class="text-xs text-[#B8B2A6] mt-1 font-medium">Anlık Rasyon Denge & Sağlık Skoru</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-[#E5A93C]">%100</div>
+                            <div class="text-xs text-[#B8B2A6] mt-1 font-medium">İnternetsiz (Offline) Saha Kullanımı</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Preview Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-[#FAF8F5] text-[#1C1917] rounded-xl shadow-2xl border border-[#DDD6CA] p-6">
+                        <div class="flex items-center justify-between pb-4 border-b border-[#E6E0D6]">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-[#B45309]">Çözücü Motor Çıktısı</span>
+                                <h3 class="font-extrabold text-lg text-[#1C1917]">Simplex Doğrusal Optimizasyon</h3>
+                            </div>
+                            <span class="px-3 py-1 rounded bg-[#EFECE6] border border-[#D6CFC2] text-[#23271E] text-xs font-extrabold">Skor: 96 / 100</span>
+                        </div>
+                        <div class="space-y-2.5 my-5 text-sm">
+                            <div class="flex justify-between items-center p-3 rounded-md bg-[#F2EFE9] border border-[#E6E0D6]">
+                                <span class="font-medium text-[#57534E]">Kuru Madde Alımı (DMI)</span>
+                                <span class="font-bold text-[#1C1917]">23.4 kg / gün</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 rounded-md bg-[#F2EFE9] border border-[#E6E0D6]">
+                                <span class="font-medium text-[#57534E]">Ham Protein (HP) & NEL</span>
+                                <span class="font-bold text-[#1C1917]">%16.8 HP | 1.68 Mcal/kg</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 rounded-md bg-[#F2EFE9] border border-[#E6E0D6]">
+                                <span class="font-medium text-[#57534E]">peNDF & Nişasta Dengesi</span>
+                                <span class="font-bold text-[#3F6212]">%22.4 peNDF (Rumen Güvenli)</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 rounded-md bg-[#F2EFE9] border border-[#E6E0D6]">
+                                <span class="font-medium text-[#57534E]">DCAD & MUN Tahmini</span>
+                                <span class="font-bold text-[#1C1917]">+245 mEq/kg | 12.1 mg/dL</span>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-lg bg-[#FFFBEB] border border-[#FDE68A] flex items-center justify-between">
+                            <div>
+                                <div class="text-xs text-[#92400E] font-semibold">Optimize Günlük Rasyon Maliyeti</div>
+                                <div class="text-2xl font-extrabold text-[#1C1917]">184,50 ₺ <span class="text-xs font-normal line-through text-[#78716C]">214,00 ₺</span></div>
+                            </div>
+                            <span class="px-2.5 py-1.5 rounded bg-[#C2410C] text-white text-xs font-extrabold">-29,50 ₺ / baş</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="ozellikler" class="py-20 bg-[#FAF8F5]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-14">
+                <span class="text-[#B45309] font-extrabold text-xs uppercase tracking-widest">Bilimsel & Saha Odaklı</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1C1917] mt-2 tracking-tight">Zooteknistler ve Yetiştiriciler İçin Pratik Çözüm</h2>
+                <p class="text-[#57534E] mt-3 text-base leading-relaxed">Karmaşık Excel tablolarıyla vakit kaybetmeyin. İşletmenizdeki mevcut kaba ve kesif yemlerin analiz değerlerini girin, yazılım en ekonomik ve sağlıklı rasyonu saniyeler içinde hesaplasın.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-7 rounded-lg border border-[#E2DCD0] bg-white hover:border-[#B45309] transition">
+                    <div class="text-xs font-extrabold text-[#B45309] tracking-widest uppercase mb-3">01 / MALİYET MİNİMİZASYONU</div>
+                    <h3 class="text-lg font-extrabold text-[#1C1917] mb-2">En Düşük Maliyet Optimizasyonu</h3>
+                    <p class="text-[#57534E] text-sm leading-relaxed">Gelişmiş Simplex algoritması ile hayvanın tüm enerji, protein, mineral ve lif ihtiyaçlarını eksiksiz karşılarken günlük yem maliyetini minimuma indirir.</p>
+                </div>
+
+                <div class="p-7 rounded-lg border border-[#E2DCD0] bg-white hover:border-[#B45309] transition">
+                    <div class="text-xs font-extrabold text-[#B45309] tracking-widest uppercase mb-3">02 / METABOLİK DENETİM</div>
+                    <h3 class="text-lg font-extrabold text-[#1C1917] mb-2">Rasyon Sağlık Skorlaması (0–100)</h3>
+                    <p class="text-[#57534E] text-sm leading-relaxed">peNDF, NDF, nişasta, DCAD ve süt üre azotu (MUN) göstergelerini anlık denetleyerek subakut rumen asidozu (SARA) ve ayak problemlerini önler.</p>
+                </div>
+
+                <div class="p-7 rounded-lg border border-[#E2DCD0] bg-white hover:border-[#B45309] transition">
+                    <div class="text-xs font-extrabold text-[#B45309] tracking-widest uppercase mb-3">03 / YEM VERİTABANI</div>
+                    <h3 class="text-lg font-extrabold text-[#1C1917] mb-2">Türkiye Koşullarına Uygun Yemler</h3>
+                    <p class="text-[#57534E] text-sm leading-relaxed">Mısır silajı, yonca kuru otu, saman, fabrika yemleri ve sanayi yan ürünlerinin hazır besin değerleriyle çalışın veya kendi laboratuvar analizlerinizi ekleyin.</p>
+                </div>
+
+                <div class="p-7 rounded-lg border border-[#E2DCD0] bg-white hover:border-[#B45309] transition">
+                    <div class="text-xs font-extrabold text-[#B45309] tracking-widest uppercase mb-3">04 / GRUP YÖNETİMİ</div>
+                    <h3 class="text-lg font-extrabold text-[#1C1917] mb-2">Süt & Besi Gruplarına Özel</h3>
+                    <p class="text-[#57534E] text-sm leading-relaxed">Yüksek verimli sağmal, orta/düşük sağmal, kuru dönem, geçiş dönemi (close-up) ve farklı canlı ağırlıklardaki besi danaları için ayrı gereksinim modelleri.</p>
+                </div>
+
+                <div class="p-7 rounded-lg border border-[#E2DCD0] bg-white hover:border-[#B45309] transition">
+                    <div class="text-xs font-extrabold text-[#B45309] tracking-widest uppercase mb-3">05 / YEM KARMA FİŞİ</div>
+                    <h3 class="text-lg font-extrabold text-[#1C1917] mb-2">Tek Tıkla TMR & Vagon Çıktısı</h3>
+                    <p class="text-[#57534E] text-sm leading-relaxed">Grup hayvan sayısını girin; yem karma makinesine (TMR) yüklenecek yaş ve kuru madde miktarlarını yazdırılabilir PDF veya ahır panosu çıktısı olarak alın.</p>
+                </div>
+
+                <div class="p-7 rounded-lg border border-[#E2DCD0] bg-white hover:border-[#B45309] transition">
+                    <div class="text-xs font-extrabold text-[#B45309] tracking-widest uppercase mb-3">06 / ÇEVRİMDIŞI MİMARİ</div>
+                    <h3 class="text-lg font-extrabold text-[#1C1917] mb-2">İnternetsiz Tam Performans</h3>
+                    <p class="text-[#57534E] text-sm leading-relaxed">Kırsal bölgede ve ahır ortamında internet bağlantısına ihtiyaç duymadan bilgisayarda, tablette ve Android telefonlarda kesintisiz çalışır.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Live Simulation Section -->
+    <section id="canli-onizleme" class="py-20 bg-[#F2EFE9] border-y border-[#E2DCD0] editorial-grid">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-3xl font-extrabold text-[#1C1917] tracking-tight">Canlı Rasyon Senaryosu Önizleme</h2>
+                <p class="text-[#57534E] mt-2">Yazılımın farklı hayvan grupları için oluşturduğu örnek optimize rasyon çıktılarını inceleyin.</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                <button id="btn-sagmal" onclick="switchScenario('sagmal')" class="px-5 py-2.5 rounded-md font-bold text-sm bg-[#23271E] text-[#FAF8F5] shadow-sm transition">
+                    Yüksek Verimli Sağmal (35 Lt/Gün)
+                </button>
+                <button id="btn-besi" onclick="switchScenario('besi')" class="px-5 py-2.5 rounded-md font-bold text-sm bg-white text-[#44403C] border border-[#D6CFC2] hover:bg-[#FAF8F5] transition">
+                    Besi Danası (500 kg Canlı Ağırlık)
+                </button>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md border border-[#DCD5C7] overflow-hidden">
+                <div class="p-6 bg-[#23271E] text-[#FAF8F5] flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                        <h3 id="sc-title" class="text-xl font-extrabold">Holstein Sağmal İnek — 650 kg CA, 35 Lt Süt (%3.8 Yağ)</h3>
+                        <p id="sc-subtitle" class="text-[#B8B2A6] text-sm mt-1">Hedef Kuru Madde Tüketimi: 23.8 kg | Rasyon Sağlık Skoru: 97/100</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs text-[#E5A93C] uppercase font-bold tracking-wider">Günlük Yem Maliyeti</div>
+                        <div id="sc-cost" class="text-2xl font-extrabold text-white">192,40 ₺ / baş</div>
+                    </div>
+                </div>
+
+                <div class="p-6 overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="border-b-2 border-[#E6E0D6] text-[#78716C] uppercase text-xs">
+                                <th class="py-3 px-4">Yem Hammaddesi</th>
+                                <th class="py-3 px-4">Yaş Ağırlık (kg/gün)</th>
+                                <th class="py-3 px-4">Kuru Madde (kg/gün)</th>
+                                <th class="py-3 px-4">KM Payı (%)</th>
+                                <th class="py-3 px-4 text-right">Günlük Tutar (₺)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sc-table-body" class="divide-y divide-[#EFECE6]">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI / Savings Calculator -->
+    <section id="tasarruf-hesaplayici" class="py-20 bg-[#FAF8F5]">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-[#23271E] text-[#FAF8F5] rounded-2xl p-8 sm:p-12 shadow-xl border border-[#383E30]">
+                <div class="grid lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <span class="px-3 py-1 rounded bg-[#2F3528] border border-[#454D3B] text-[#E5A93C] text-xs font-bold uppercase tracking-wider">Yatırım Geri Dönüş (ROI) Analizi</span>
+                        <h2 class="text-3xl font-extrabold tracking-tight">İşletmeniz Yılda Ne Kadar Tasarruf Edebilir?</h2>
+                        <p class="text-[#D6D1C7] text-sm leading-relaxed">Sürü büyüklüğünüzü ve mevcut ortalama günlük yem maliyetinizi seçerek RasyonPro optimizasyonu ile elde edeceğiniz tahmini yıllık kazancı görün.</p>
+
+                        <div class="space-y-5 pt-2">
+                            <div>
+                                <div class="flex justify-between text-sm font-bold mb-2">
+                                    <span>Sağmal / Besi Hayvan Sayısı</span>
+                                    <span id="lbl-hayvan" class="text-[#E5A93C]">100 Baş</span>
+                                </div>
+                                <input id="inp-hayvan" type="range" min="10" max="1000" step="10" value="100" oninput="calcROI()" class="w-full accent-[#C2410C] cursor-pointer">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-sm font-bold mb-2">
+                                    <span>Hayvan Başına Mevcut Günlük Yem Maliyeti</span>
+                                    <span id="lbl-maliyet" class="text-[#E5A93C]">200 ₺</span>
+                                </div>
+                                <input id="inp-maliyet" type="range" min="80" max="350" step="5" value="200" oninput="calcROI()" class="w-full accent-[#C2410C] cursor-pointer">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-sm font-bold mb-2">
+                                    <span>Hedeflenen Optimizasyon Tasarruf Oranı</span>
+                                    <span id="lbl-oran" class="text-[#E5A93C]">%12</span>
+                                </div>
+                                <input id="inp-oran" type="range" min="6" max="20" step="1" value="12" oninput="calcROI()" class="w-full accent-[#C2410C] cursor-pointer">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-[#FAF8F5] text-[#1C1917] rounded-xl p-7 space-y-5 shadow-lg border border-[#DDD6CA]">
+                        <div class="text-xs font-extrabold uppercase tracking-wider text-[#78716C]">Tahmini Kazanç Tablosu</div>
+                        <div class="pb-4 border-b border-[#E6E0D6]">
+                            <div class="text-sm text-[#57534E] font-medium">Aylık Net Yem Tasarrufu</div>
+                            <div id="res-aylik" class="text-3xl font-extrabold text-[#B45309] mt-1">72.000 ₺</div>
+                        </div>
+                        <div class="pb-4 border-b border-[#E6E0D6]">
+                            <div class="text-sm text-[#57534E] font-medium">Yıllık Toplam Yem Tasarrufu</div>
+                            <div id="res-yillik" class="text-4xl font-extrabold text-[#1C1917] mt-1">864.000 ₺</div>
+                        </div>
+                        <p class="text-xs text-[#57534E] leading-relaxed">
+                            * Yazılım lisans bedeli ortalama büyüklükteki bir işletmede yalnızca <strong>4 ila 7 gün</strong> içinde kendini amorti eder.
+                        </p>
+                        <button onclick="openModal('ROI Raporu ile Demo Talebi')" class="w-full py-3 rounded-md bg-[#C2410C] hover:bg-[#9A3412] text-white font-bold text-sm transition">
+                            Bu Tasarrufu Yakalamak İçin Başlayın
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="paketler" class="py-20 bg-[#F2EFE9] border-t border-[#E2DCD0]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1C1917] tracking-tight">Şeffaf Lisans Paketleri</h2>
+                <p class="text-[#57534E] mt-3">İster tek çiftlik işletmecisi olun, ister sahada onlarca işletmeye danışmanlık veren zooteknist; size uygun paket hazır.</p>
+
+                <!-- Billing Toggle -->
+                <div class="inline-flex items-center gap-2 bg-white p-1.5 rounded-lg border border-[#DCD5C7] mt-6 shadow-sm">
+                    <button id="bill-yearly" onclick="setBilling('yearly')" class="px-4 py-2 rounded-md text-sm font-bold bg-[#23271E] text-white transition">
+                        Yıllık Lisans (%25 İndirimli)
+                    </button>
+                    <button id="bill-monthly" onclick="setBilling('monthly')" class="px-4 py-2 rounded-md text-sm font-semibold text-[#57534E] hover:text-[#1C1917] transition">
+                        Aylık Ödeme
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Starter -->
+                <div class="bg-white rounded-xl p-8 border border-[#DCD5C7] shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-extrabold text-[#B45309] uppercase tracking-wider">Çiftlik Başlangıç</div>
+                        <h3 class="text-2xl font-extrabold text-[#1C1917] mt-1">Bireysel İşletme</h3>
+                        <p class="text-sm text-[#57534E] mt-2">Tek işletme ve 150 başa kadar sürü yönetimi için ideal.</p>
+                        <div class="my-6">
+                            <span id="price-1" class="text-4xl font-extrabold text-[#1C1917]">750 ₺</span>
+                            <span id="period-1" class="text-[#78716C] text-sm">/ ay (yıllık faturalanır)</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-[#44403C] mb-8">
+                            <li>✓ Sınırsız Rasyon Hesaplama</li>
+                            <li>✓ Süt & Besi Optimizasyon Motoru</li>
+                            <li>✓ Standart Yem Kütüphanesi</li>
+                            <li>✓ PDF TMR Karışım Çıktısı</li>
+                            <li>✓ Çevrimdışı Masaüstü & Web Erişimi</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('Bireysel İşletme Paketi')" class="w-full py-3 rounded-md border-2 border-[#23271E] text-[#23271E] hover:bg-[#F2EFE9] font-bold text-sm transition">
+                        Paketi Seç
+                    </button>
+                </div>
+
+                <!-- Pro -->
+                <div class="bg-white rounded-xl p-8 border-2 border-[#C2410C] shadow-lg relative flex flex-col justify-between">
+                    <span class="absolute -top-3.5 right-6 bg-[#C2410C] text-white text-[11px] font-extrabold tracking-wider px-3 py-1 rounded">EN ÇOK TERCİH EDİLEN</span>
+                    <div>
+                        <div class="text-xs font-extrabold text-[#B45309] uppercase tracking-wider">Profesyonel Sürü</div>
+                        <h3 class="text-2xl font-extrabold text-[#1C1917] mt-1">Entegre Çiftlik Pro</h3>
+                        <p class="text-sm text-[#57534E] mt-2">Büyük ölçekli süt ve besi işletmeleri için tam kapsamlı analiz.</p>
+                        <div class="my-6">
+                            <span id="price-2" class="text-4xl font-extrabold text-[#1C1917]">1.350 ₺</span>
+                            <span id="period-2" class="text-[#78716C] text-sm">/ ay (yıllık faturalanır)</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-[#1C1917] font-medium mb-8">
+                            <li>✓ Sınırsız Hayvan & Grup Yönetimi</li>
+                            <li>✓ Gelişmiş NASEM & CNCPS Modeli</li>
+                            <li>✓ Özel Laboratuvar Yem Analizi Girişi</li>
+                            <li>✓ peNDF, DCAD & MUN Metabolik Skorlama</li>
+                            <li>✓ Yem Stok & Maliyet Takip Modülü</li>
+                            <li>✓ Öncelikli Zooteknist Teknik Desteği</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('Entegre Çiftlik Pro Paketi')" class="w-full py-3.5 rounded-md bg-[#C2410C] hover:bg-[#9A3412] text-white font-bold text-sm shadow transition">
+                        Hemen Başla
+                    </button>
+                </div>
+
+                <!-- Consultant -->
+                <div class="bg-white rounded-xl p-8 border border-[#DCD5C7] shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs font-extrabold text-[#B45309] uppercase tracking-wider">Danışman & Yem Fabrikası</div>
+                        <h3 class="text-2xl font-extrabold text-[#1C1917] mt-1">Kurumsal / Zooteknist</h3>
+                        <p class="text-sm text-[#57534E] mt-2">Birden fazla müşteriye rasyon hazırlayan danışmanlar ve bayiler için.</p>
+                        <div class="my-6">
+                            <span id="price-3" class="text-4xl font-extrabold text-[#1C1917]">2.400 ₺</span>
+                            <span id="period-3" class="text-[#78716C] text-sm">/ ay (yıllık faturalanır)</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-[#44403C] mb-8">
+                            <li>✓ Sınırsız Müşteri / Çiftlik Profili</li>
+                            <li>✓ Kendi Logonuzla Rasyon Raporu Oluşturma</li>
+                            <li>✓ Çoklu Yem Fabrikası Premiks Formülasyonu</li>
+                            <li>✓ Mobil Saha Uygulaması (Android APK)</li>
+                            <li>✓ 3 Kullanıcıya Kadar Eşzamanlı Lisans</li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('Kurumsal / Zooteknist Paketi')" class="w-full py-3 rounded-md border-2 border-[#23271E] text-[#23271E] hover:bg-[#F2EFE9] font-bold text-sm transition">
+                        Kurumsal Teklif Al
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="iletisim" class="py-16 bg-[#FAF8F5] border-t border-[#E2DCD0]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-xl border border-[#DCD5C7] p-8 sm:p-10 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div>
+                    <span class="text-xs font-extrabold text-[#B45309] uppercase tracking-widest">Doğrudan İletişim & Teknik Destek</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-[#1C1917] mt-1">NUH BEKTAŞ</h2>
+                    <p class="text-sm text-[#57534E] mt-1">Ziraat Mühendisi & Zooteknist | Sığır Rasyon Optimizasyon Sistemleri</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="mailto:nuhbektas@gmail.com" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-md bg-[#F2EFE9] hover:bg-[#E6E0D6] border border-[#DCD5C7] text-[#1C1917] font-bold text-sm transition">
+                        <svg class="w-4 h-4 text-[#C2410C]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        nuhbektas@gmail.com
+                    </a>
+                    <button onclick="openModal('NUH BEKTAŞ ile İletişim / Demo Talebi')" class="px-5 py-3 rounded-md bg-[#C2410C] hover:bg-[#9A3412] text-white font-bold text-sm transition">
+                        Mesaj Gönder
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1C1917] text-[#A8A29E] py-12 border-t border-[#292524]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded bg-[#C2410C] text-white flex items-center justify-center font-extrabold text-sm">RP</div>
+                <span class="text-[#FAF8F5] font-extrabold text-lg">RasyonPro</span>
+                <span class="text-xs ml-2">© 2026 Tüm Hakları Saklıdır.</span>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center gap-3 text-xs">
+                <span class="text-[#FAF8F5] font-bold">İletişim: NUH BEKTAŞ</span>
+                <span class="hidden sm:inline">•</span>
+                <a href="mailto:nuhbektas@gmail.com" class="text-[#E5A93C] hover:underline font-semibold">nuhbektas@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Form -->
+    <div id="demo-modal" class="fixed inset-0 z-50 hidden bg-[#1C1917]/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-[#FAF8F5] rounded-xl max-w-md w-full p-7 shadow-2xl border border-[#DCD5C7] relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-[#78716C] hover:text-[#1C1917] font-bold text-xl">&times;</button>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-[#B45309]">Hızlı Başvuru</span>
+            <h3 id="modal-title" class="text-2xl font-extrabold text-[#1C1917] mt-1">Ücretsiz Demo Talebi</h3>
+            <p class="text-sm text-[#57534E] mt-1 mb-5">Bilgilerinizi bırakın veya doğrudan <a href="mailto:nuhbektas@gmail.com" class="text-[#C2410C] font-bold underline">nuhbektas@gmail.com</a> adresinden NUH BEKTAŞ ile iletişime geçin.</p>
+
+            <form onsubmit="submitForm(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-[#44403C] mb-1">Adınız Soyadınız</label>
+                    <input type="text" required placeholder="Örn: Ahmet Yılmaz" class="w-full px-3.5 py-2.5 rounded-md bg-white border border-[#D6CFC2] text-sm focus:outline-none focus:border-[#C2410C]">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-[#44403C] mb-1">Telefon veya E-posta Adresiniz</label>
+                    <input type="text" required placeholder="05XX XXX XX XX / ornek@mail.com" class="w-full px-3.5 py-2.5 rounded-md bg-white border border-[#D6CFC2] text-sm focus:outline-none focus:border-[#C2410C]">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-[#44403C] mb-1">İşletme Türü / Hayvan Sayısı</label>
+                    <input type="text" placeholder="Örn: 120 Baş Sağmal Süt İşletmesi" class="w-full px-3.5 py-2.5 rounded-md bg-white border border-[#D6CFC2] text-sm focus:outline-none focus:border-[#C2410C]">
+                </div>
+                <button type="submit" class="w-full py-3 rounded-md bg-[#C2410C] hover:bg-[#9A3412] text-white font-bold text-sm transition">
+                    Talebi Gönder
+                </button>
+            </form>
+            <div id="form-success" class="hidden mt-4 p-3 rounded-md bg-[#FEF3C7] border border-[#F59E0B] text-[#92400E] text-sm font-semibold text-center">
+                Talebiniz başarıyla alındı! NUH BEKTAŞ (nuhbektas@gmail.com) en kısa sürede sizinle iletişime geçecektir.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const scenarios = {
+            sagmal: {
+                title: "Holstein Sağmal İnek — 650 kg CA, 35 Lt Süt (%3.8 Yağ)",
+                subtitle: "Hedef Kuru Madde Tüketimi: 23.8 kg | Rasyon Sağlık Skoru: 97/100",
+                cost: "192,40 ₺ / baş",
+                rows: [
+                    { name: "Mısır Silajı (%32 KM)", wet: "22.00", dm: "7.04", pct: "%29.6", cost: "48,40 ₺" },
+                    { name: "Yonca Kuru Otu (%18 HP)", wet: "4.50", dm: "4.05", pct: "%17.0", cost: "42,75 ₺" },
+                    { name: "Buğday Samanı", wet: "1.00", dm: "0.90", pct: "%3.8", cost: "3,80 ₺" },
+                    { name: "Arpa / Mısır Ezmesi Karışımı", wet: "5.20", dm: "4.58", pct: "%19.2", cost: "44,20 ₺" },
+                    { name: "Soya Küspesi (%46 HP)", wet: "2.80", dm: "2.49", pct: "%10.5", cost: "36,40 ₺" },
+                    { name: "Ayçiçeği Tohumu Küspesi", wet: "1.60", dm: "1.44", pct: "%6.1", cost: "11,20 ₺" },
+                    { name: "Vitamin-Mineral Premiks & Tampon", wet: "0.45", dm: "0.44", pct: "%1.8", cost: "5,65 ₺" }
+                ]
+            },
+            besi: {
+                title: "Simental Besi Danası — 500 kg CA, Hedef Günlük Canlı Ağırlık Artışı: 1.55 kg",
+                subtitle: "Hedef Kuru Madde Tüketimi: 11.4 kg | Rasyon Sağlık Skoru: 95/100",
+                cost: "118,60 ₺ / baş",
+                rows: [
+                    { name: "Mısır Silajı (%32 KM)", wet: "9.50", dm: "3.04", pct: "%26.7", cost: "20,90 ₺" },
+                    { name: "Buğday Samanı", wet: "1.80", dm: "1.62", pct: "%14.2", cost: "6,85 ₺" },
+                    { name: "Arpa Ezmesi", wet: "4.20", dm: "3.70", pct: "%32.5", cost: "34,40 ₺" },
+                    { name: "Mısır Kepeği / DDGS", wet: "2.10", dm: "1.89", pct: "%16.6", cost: "18,90 ₺" },
+                    { name: "Pamuk Tohumu / Ayçiçeği Küspesi", wet: "1.10", dm: "0.99", pct: "%8.7", cost: "9,35 ₺" },
+                    { name: "Besi Premiksi, Mermer Tozu & Tuz", wet: "0.25", dm: "0.24", pct: "%2.1", cost: "3,20 ₺" }
+                ]
+            }
+        };
+
+        function switchScenario(type) {
+            const sc = scenarios[type];
+            document.getElementById('sc-title').textContent = sc.title;
+            document.getElementById('sc-subtitle').textContent = sc.subtitle;
+            document.getElementById('sc-cost').textContent = sc.cost;
+
+            const tbody = document.getElementById('sc-table-body');
+            tbody.innerHTML = sc.rows.map(r => `
+                <tr class="hover:bg-[#FAF8F5]">
+                    <td class="py-3 px-4 font-bold text-[#1C1917]">${r.name}</td>
+                    <td class="py-3 px-4 text-[#57534E]">${r.wet} kg</td>
+                    <td class="py-3 px-4 text-[#57534E]">${r.dm} kg</td>
+                    <td class="py-3 px-4 font-bold text-[#B45309]">${r.pct}</td>
+                    <td class="py-3 px-4 text-right font-extrabold text-[#1C1917]">${r.cost}</td>
+                </tr>
+            `).join('');
+
+            const btnSagmal = document.getElementById('btn-sagmal');
+            const btnBesi = document.getElementById('btn-besi');
+            if (type === 'sagmal') {
+                btnSagmal.className = "px-5 py-2.5 rounded-md font-bold text-sm bg-[#23271E] text-[#FAF8F5] shadow-sm transition";
+                btnBesi.className = "px-5 py-2.5 rounded-md font-bold text-sm bg-white text-[#44403C] border border-[#D6CFC2] hover:bg-[#FAF8F5] transition";
+            } else {
+                btnBesi.className = "px-5 py-2.5 rounded-md font-bold text-sm bg-[#23271E] text-[#FAF8F5] shadow-sm transition";
+                btnSagmal.className = "px-5 py-2.5 rounded-md font-bold text-sm bg-white text-[#44403C] border border-[#D6CFC2] hover:bg-[#FAF8F5] transition";
+            }
+        }
+
+        function calcROI() {
+            const hayvan = parseInt(document.getElementById('inp-hayvan').value);
+            const maliyet = parseInt(document.getElementById('inp-maliyet').value);
+            const oran = parseInt(document.getElementById('inp-oran').value);
+
+            document.getElementById('lbl-hayvan').textContent = hayvan + " Baş";
+            document.getElementById('lbl-maliyet').textContent = maliyet + " ₺";
+            document.getElementById('lbl-oran').textContent = "%" + oran;
+
+            const gunlukTasarruf = hayvan * maliyet * (oran / 100);
+            const aylik = Math.round(gunlukTasarruf * 30);
+            const yillik = Math.round(gunlukTasarruf * 365);
+
+            document.getElementById('res-aylik').textContent = aylik.toLocaleString('tr-TR') + " ₺";
+            document.getElementById('res-yillik').textContent = yillik.toLocaleString('tr-TR') + " ₺";
+        }
+
+        function setBilling(mode) {
+            const yBtn = document.getElementById('bill-yearly');
+            const mBtn = document.getElementById('bill-monthly');
+            if (mode === 'yearly') {
+                yBtn.className = "px-4 py-2 rounded-md text-sm font-bold bg-[#23271E] text-white transition";
+                mBtn.className = "px-4 py-2 rounded-md text-sm font-semibold text-[#57534E] hover:text-[#1C1917] transition";
+                document.getElementById('price-1').textContent = "750 ₺";
+                document.getElementById('price-2').textContent = "1.350 ₺";
+                document.getElementById('price-3').textContent = "2.400 ₺";
+                document.getElementById('period-1').textContent = "/ ay (yıllık faturalanır)";
+                document.getElementById('period-2').textContent = "/ ay (yıllık faturalanır)";
+                document.getElementById('period-3').textContent = "/ ay (yıllık faturalanır)";
+            } else {
+                mBtn.className = "px-4 py-2 rounded-md text-sm font-bold bg-[#23271E] text-white transition";
+                yBtn.className = "px-4 py-2 rounded-md text-sm font-semibold text-[#57534E] hover:text-[#1C1917] transition";
+                document.getElementById('price-1').textContent = "1.000 ₺";
+                document.getElementById('price-2').textContent = "1.800 ₺";
+                document.getElementById('price-3').textContent = "3.200 ₺";
+                document.getElementById('period-1').textContent = "/ ay (aylık ödeme)";
+                document.getElementById('period-2').textContent = "/ ay (aylık ödeme)";
+                document.getElementById('period-3').textContent = "/ ay (aylık ödeme)";
+            }
+        }
+
+        function openModal(title) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('form-success').classList.add('hidden');
+            document.getElementById('demo-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('demo-modal').classList.add('hidden');
+        }
+
+        function submitForm(e) {
+            e.preventDefault();
+            document.getElementById('form-success').classList.remove('hidden');
+            setTimeout(() => {
+                closeModal();
+            }, 2500);
+        }
+
+        // Init
+        switchScenario('sagmal');
+        calcROI();
+    </script>
+</body>
+</html>
